@@ -36,6 +36,8 @@ namespace PictureCode2
 		}
 		void BtnOpenClick(object sender, EventArgs e)
 		{
+			openFileDialog1.Filter = "Pictures|*.bmp;*.png;*.jpg;*.jpeg;*.ico|All files|*.*";
+			openFileDialog1.FileName = "";
 			if(openFileDialog1.ShowDialog() == DialogResult.OK)
 			{
 				pict = new Bitmap(openFileDialog1.FileName);
@@ -51,9 +53,10 @@ namespace PictureCode2
 			
 			if(width%8 != 0)
 			{
-				width++;
+				width_byte++;
 			}
-			//textBox.Text +=
+			textBox.Text += "0x"+Convert.ToString(height, 16) + ", 0x00, " + "0x"+Convert.ToString(width_byte, 16) + 
+								", 0x00," + Environment.NewLine;
 		}
 	}
 }
