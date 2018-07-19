@@ -44,6 +44,7 @@ namespace PictureCode2
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.btnOpen = new System.Windows.Forms.Button();
 			this.btnConvert = new System.Windows.Forms.Button();
 			this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -93,6 +94,8 @@ namespace PictureCode2
 			this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.textBox.Size = new System.Drawing.Size(434, 316);
 			this.textBox.TabIndex = 3;
+			this.textBox.Click += new System.EventHandler(this.TextBoxClick);
+			this.textBox.TextChanged += new System.EventHandler(this.TextBoxTextChanged);
 			// 
 			// openFileDialog1
 			// 
@@ -121,6 +124,7 @@ namespace PictureCode2
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
 			// 
 			// MainForm
 			// 
@@ -132,6 +136,7 @@ namespace PictureCode2
 			this.Controls.Add(this.btnConvert);
 			this.Controls.Add(this.btnOpen);
 			this.Controls.Add(this.menuStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
 			this.Text = "PictureCode2";

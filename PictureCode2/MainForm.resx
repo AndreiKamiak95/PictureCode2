@@ -123,4 +123,64 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>156, 16</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAGACoDAAAFgAAACgAAAAgAAAAQAAAAAEAGAAAAAAAAAAAAMQOAADEDgAAAAAAAAAA
+        AAD9/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f3+/v4AAAAAAAABAQEBAQEBAQEB
+        AQH////+/v7///////////////8BAQEBAQEBAQEGBgb////+/v7/////////////////////////////
+        //////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAD////+/v7///////////////8AAAAA
+        AAAAAAAAAAD////+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7///8AAAAA
+        AAAAAAAAAAAAAAAAAAD+/v79/f3+/v7+/v7+/v7+/v4AAAAAAAAAAAAAAAD+/v79/f3/////////////
+        //////////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAD////+/v7/////
+        //////////8AAAAAAAAAAAAAAAD////+/v7/////////////////////////////////////////////
+        //////////8AAAAAAAAAAAAAAAAAAAAAAAD////+/v7///////////////8AAAAAAAAAAAAAAAD////+
+        /v7////////////////////////////////////////////////////+/v79/f39/f0AAAAAAAAAAAAA
+        AAD////9/f3///////////////8AAAAAAAAAAAAAAAD/////////////////////////////////////
+        ///////////////////////+/v7///////8AAAAAAAAAAAAAAAD////+/v7///////////////8AAAAA
+        AAAAAAAAAAD////+/v7////////////////////////////////////////////////////+/v7/////
+        //8AAAAAAAAAAAAAAAD////+/v7///////////////8AAAAAAAAAAAAAAAD////+/v7/////////////
+        //////////8AAAAAAAAAAAAAAAD////////////+/v7///////8AAAAAAAAAAAAAAAD////+/v7/////
+        //////////8AAAAAAAAAAAAAAAD////+/v7///////////////////////8AAAAAAAAAAAAAAAD/////
+        ///////+/v7///////8AAAAAAAAAAAAAAAD////+/v7///////////////8AAAAAAAAAAAAAAAD////+
+        /v7+/v7+/v79/f39/f39/f39/f0AAAAAAAAAAAAAAAD9/f39/f39/f37+/v+/v7+/v4AAAAAAAAAAAAA
+        AAD9/f39/f39/f39/f39/f39/f0AAAAAAAAAAAAEBAT+/v79/f3///////8AAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAD///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAD////+/v7///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////
+        //8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////+/v4BAQEBAQEAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAD///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////+
+        /v4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////+/v4AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////////////////+/v7/////////////////////
+        //8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD////////////////////+/v7///////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+/v7+/v7+/v7+/v7+/v79/f3+/v7+
+        /v7+/v7+/v7+/v7+/v4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////8AAAAAAAAAAAAAAAD/////
+        //8AAAAAAAAAAAAAAAD////////////////////+/v7///////////////////////8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD///////8AAAAAAAAAAAAAAAD///////8AAAAAAAAAAAAAAAD/////////////
+        ///////+/v7///////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEAAAAA
+        AAAAAAAAAAABAQEBAQEAAAAAAAAAAAAAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8
+        /PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD////////////////////+/v7///////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////////////////+/v7/////
+        //////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////////////////////////
+        //8AAAAAAAAAAAAAAAD////////////////////+/v7///////////////////////8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD///////////////////////////////8AAAAAAAAAAAAAAAD/////////////
+        ///////+/v7///////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////////
+        //////////////////8AAAABAQEAAAAAAAD////////////////////9/f3////////////////9/f39
+        /f0AAAAAAAAAAAAAAAAAAAAAAAD///////////////////////////////////////////////8AAAAA
+        AAD////////////////////+/v7///////////////8AAAAAAAAAAAAAAAD////+/v4AAAAAAAD/////
+        //////////////////////////////////////////8AAAAAAAD////////////////////+/v7/////
+        //////////8AAAAAAAAAAAAAAAD////+/v78/Pz8/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7
+        +/v7+/v7+/v8/Pz8/Pz7+/v7+/v7+/v7+/v7+/v+/v4CAgICAgICAgICAgIAAAAAAAD8/Pz+/v77+/v+
+        /v7////////////////////////////////////////////////////+/v7/////////////////////
+        ///////9/f0AAAAAAAAAAAAAAAAAAAAAAAD////+/v7////+/v7/////////////////////////////
+        ///////////////////////+/v7////////////////////////////9/f0AAAAAAAAAAAAAAAAAAAAA
+        AAD////+/v7////+/v4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

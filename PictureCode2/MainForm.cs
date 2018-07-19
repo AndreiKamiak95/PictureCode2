@@ -30,6 +30,23 @@ namespace PictureCode2
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
+		
+		public static byte SetBit(byte val, int num,bool bit)
+		{
+			if ((num> 7) || (num< 0))//Проверка входных данных
+			{
+			   throw new ArgumentException();
+			}
+			byte tmpval = 1;
+			tmpval = (byte)(tmpval<<num);//устанавливаем нужный бит в единицу
+			val = (byte)(val& (~tmpval));//сбрасываем в 0 нужный бит
+			
+			if (bit)// если бит требуется установить в 1
+			{
+			   val = (byte)(val | (tmpval));//то устанавливаем нужный бит в 1
+			}
+			return val;
+		}
 		void ExitToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			Application.Exit();
@@ -50,6 +67,9 @@ namespace PictureCode2
 			int width = pict.Width;
 			int height = pict.Height;
 			int width_byte = pict.Width/8;
+			byte segment = 0;
+			string line = "";
+			Color pixel;
 			
 			if(width%8 != 0)
 			{
@@ -57,6 +77,54 @@ namespace PictureCode2
 			}
 			textBox.Text += "0x"+Convert.ToString(height, 16) + ", 0x00, " + "0x"+Convert.ToString(width_byte, 16) + 
 								", 0x00," + Environment.NewLine;
+			
+			for(int j = 0; j < height; j++)
+			{
+				for(int i = 0; i < width; i+=8)
+				{
+					segment = 0;
+					
+					for(int k = 0; k < 8; k++)
+					{
+						try
+						{
+							pixel = pict.GetPixel(i+k,j);
+							if((pixel.R < 230) && (pixel.G < 230) && (pixel.B != 230))
+							{
+								segment = SetBit(segment, 7-k, true);
+							}
+						}
+						catch(Exception)
+						{
+							break;
+						}
+					}
+					line += "0x"+Convert.ToString(segment, 16)+",";
+				}
+				line += Environment.NewLine;
+			}
+			textBox.Text += line;
+		}
+		void AboutToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			MessageBox.Show("Кодировщик картинок версия 2\n" +
+			                "Конвертирует картинки в бинарный формат\n"+
+			                "Нулевой байт в массиве - высота в битах, второй - ширина в байтах\n"+
+			               	"Отрисовку начинать с четвертого байта\n"+
+			               	"Пиксель не фиксируется, если его значение больше 230 по трем каналам");
+		}
+		void TextBoxTextChanged(object sender, EventArgs e)
+		{
+			/*textBox.SelectionStart = 0;
+			textBox.SelectionLength = textBox.Text.Length;
+			textBox.Text = textBox.SelectedText;*/
+			textBox.SelectAll();
+			textBox.Focus();
+		}
+		void TextBoxClick(object sender, EventArgs e)
+		{
+			textBox.SelectAll();
+			textBox.Focus();
 		}
 	}
 }
