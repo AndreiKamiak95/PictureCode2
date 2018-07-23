@@ -18,7 +18,9 @@ namespace PictureCode2
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		Bitmap pict;
+		Bitmap pict, new_pict;
+		int red, green, blue;
+		
 		public MainForm()
 		{
 			//
@@ -29,6 +31,14 @@ namespace PictureCode2
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			red = trackBarRed.Value;
+			green = trackBarGreen.Value;
+			blue = trackBarBlue.Value;
+			textBoxBlue.Text = blue.ToString();
+			textBoxGreen.Text = green.ToString();
+			textBoxRed.Text = red.ToString();
 		}
 		
 		public static byte SetBit(byte val, int num,bool bit)
@@ -47,10 +57,6 @@ namespace PictureCode2
 			}
 			return val;
 		}
-		void ExitToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
 		void BtnOpenClick(object sender, EventArgs e)
 		{
 			openFileDialog1.Filter = "Pictures|*.bmp;*.png;*.jpg;*.jpeg;*.ico|All files|*.*";
@@ -60,6 +66,7 @@ namespace PictureCode2
 				pict = new Bitmap(openFileDialog1.FileName);
 				pictureBox.Image = pict;
 				btnConvert.Enabled = true;
+				new_pict = new Bitmap(pict.Width, pict.Height);
 			}
 		}
 		void BtnConvertClick(object sender, EventArgs e)
@@ -90,10 +97,13 @@ namespace PictureCode2
 						try
 						{
 							pixel = pict.GetPixel(i+k,j);
-							if((pixel.R < 230) && (pixel.G < 230) && (pixel.B != 230))
+							if((pixel.R <= red) && (pixel.G <= green) && (pixel.B <= blue))
 							{
 								segment = SetBit(segment, 7-k, true);
+								new_pict.SetPixel(i+k, j, Color.Black);
 							}
+							else
+								new_pict.SetPixel(i+k, j, Color.White);
 						}
 						catch(Exception)
 						{
@@ -105,6 +115,7 @@ namespace PictureCode2
 				line += Environment.NewLine;
 			}
 			textBox.Text += line;
+			pictureBox1.Image = new_pict;
 		}
 		void AboutToolStripMenuItemClick(object sender, EventArgs e)
 		{
@@ -126,6 +137,87 @@ namespace PictureCode2
 		{
 			textBox.SelectAll();
 			textBox.Focus();
+		}
+		void TrackBarRedScroll(object sender, EventArgs e)
+		{
+			red = trackBarRed.Value;
+			textBoxRed.Text = red.ToString();
+		}
+		void TrackBarGreenScroll(object sender, EventArgs e)
+		{
+			green = trackBarGreen.Value;
+			textBoxGreen.Text = green.ToString();
+		}
+		void TrackBarBlueScroll(object sender, EventArgs e)
+		{
+			blue = trackBarBlue.Value;
+			textBoxBlue.Text = blue.ToString();
+		}
+		void TextBoxRedTextChanged(object sender, EventArgs e)
+		{
+			try 
+			{
+				red = Convert.ToInt32(textBoxRed.Text);
+				if(red > 255)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					red = 255;
+				}
+				if(red < 0)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					red = 0;
+				}
+				trackBarRed.Value = red;
+			} 
+			catch (Exception) 
+			{	
+				MessageBox.Show("Неверный формат ввода");
+			}
+		}
+		void TextBoxGreenTextChanged(object sender, EventArgs e)
+		{
+			try 
+			{
+				green = Convert.ToInt32(textBoxGreen.Text);
+				if(green > 255)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					green = 255;
+				}
+				if(green < 0)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					green = 0;
+				}
+				trackBarGreen.Value = green;
+			} 
+			catch (Exception) 
+			{
+				MessageBox.Show("Неверный формат ввода");
+			}
+		}
+		void TextBoxBlueTextChanged(object sender, EventArgs e)
+		{
+			try 
+			{
+				blue = Convert.ToInt32(textBoxBlue.Text);
+				if(blue > 255)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					blue = 255;
+				}
+				if(blue < 0)
+				{
+					MessageBox.Show("Диапазон вводимых занчений 0-255");
+					blue = 0;
+				}
+				trackBarBlue.Value = blue;
+			} 
+			catch (Exception) 
+			{
+				MessageBox.Show("Неверный формат ввода");
+			}
 		}
 	}
 }
