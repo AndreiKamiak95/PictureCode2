@@ -70,6 +70,7 @@ namespace PictureCode2
 			byte segment = 0;
 			string line = "";
 			Color pixel;
+			textBox.Text = "";
 			
 			if(width%8 != 0)
 			{
