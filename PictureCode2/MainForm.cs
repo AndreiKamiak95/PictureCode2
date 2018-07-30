@@ -63,7 +63,13 @@ namespace PictureCode2
 			openFileDialog1.FileName = "";
 			if(openFileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				pict = new Bitmap(openFileDialog1.FileName);
+				try {
+					pict = new Bitmap(openFileDialog1.FileName);
+				} catch (Exception) {
+					
+					MessageBox.Show("Неверный тип файла");
+				}
+				
 				pictureBox.Image = pict;
 				btnConvert.Enabled = true;
 				new_pict = new Bitmap(pict.Width, pict.Height);
@@ -122,14 +128,10 @@ namespace PictureCode2
 			MessageBox.Show("Кодировщик картинок версия 2\n" +
 			                "Конвертирует картинки в бинарный формат\n"+
 			                "Нулевой байт в массиве - высота в битах, второй - ширина в байтах\n"+
-			               	"Отрисовку начинать с четвертого байта\n"+
-			               	"Пиксель не фиксируется, если его значение больше 230 по трем каналам");
+			               	"Отрисовку начинать с четвертого байта");
 		}
 		void TextBoxTextChanged(object sender, EventArgs e)
 		{
-			/*textBox.SelectionStart = 0;
-			textBox.SelectionLength = textBox.Text.Length;
-			textBox.Text = textBox.SelectedText;*/
 			textBox.SelectAll();
 			textBox.Focus();
 		}
