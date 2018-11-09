@@ -28,6 +28,7 @@ namespace PictureCode2
 		private System.Windows.Forms.TextBox textBoxGreen;
 		private System.Windows.Forms.TextBox textBoxBlue;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Button ConverRow;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -65,6 +66,7 @@ namespace PictureCode2
 			this.textBoxGreen = new System.Windows.Forms.TextBox();
 			this.textBoxBlue = new System.Windows.Forms.TextBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.ConverRow = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
@@ -77,7 +79,7 @@ namespace PictureCode2
 			// 
 			this.btnOpen.Location = new System.Drawing.Point(165, 182);
 			this.btnOpen.Name = "btnOpen";
-			this.btnOpen.Size = new System.Drawing.Size(84, 23);
+			this.btnOpen.Size = new System.Drawing.Size(41, 23);
 			this.btnOpen.TabIndex = 0;
 			this.btnOpen.Text = "Open";
 			this.btnOpen.UseVisualStyleBackColor = true;
@@ -86,9 +88,9 @@ namespace PictureCode2
 			// btnConvert
 			// 
 			this.btnConvert.Enabled = false;
-			this.btnConvert.Location = new System.Drawing.Point(276, 182);
+			this.btnConvert.Location = new System.Drawing.Point(212, 182);
 			this.btnConvert.Name = "btnConvert";
-			this.btnConvert.Size = new System.Drawing.Size(87, 23);
+			this.btnConvert.Size = new System.Drawing.Size(52, 23);
 			this.btnConvert.TabIndex = 1;
 			this.btnConvert.Text = "Convert";
 			this.btnConvert.UseVisualStyleBackColor = true;
@@ -203,11 +205,23 @@ namespace PictureCode2
 			this.pictureBox1.TabIndex = 11;
 			this.pictureBox1.TabStop = false;
 			// 
+			// ConverRow
+			// 
+			this.ConverRow.Enabled = false;
+			this.ConverRow.Location = new System.Drawing.Point(270, 182);
+			this.ConverRow.Name = "ConverRow";
+			this.ConverRow.Size = new System.Drawing.Size(93, 23);
+			this.ConverRow.TabIndex = 12;
+			this.ConverRow.Text = "ConvertRow";
+			this.ConverRow.UseVisualStyleBackColor = true;
+			this.ConverRow.Click += new System.EventHandler(this.ConverRowClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(815, 373);
+			this.Controls.Add(this.ConverRow);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.textBoxBlue);
 			this.Controls.Add(this.textBoxGreen);

@@ -221,5 +221,49 @@ namespace PictureCode2
 				MessageBox.Show("Неверный формат ввода");
 			}
 		}
+		void ConverRowClick(object sender, EventArgs e)
+		{
+			textBox.Clear();
+			int width = pict.Width;
+			int height = pict.Height;
+			byte segment = 0;
+			string line = "";
+			Color pixel;
+			int height_byte = pict.Height/8;
+			if(pict.Height%8 != 0)
+			{
+				height_byte++;
+			}
+			
+			for(int i = 0; i < width; i++)
+			{
+				for(int j = 0; j < height_byte; j+=8)
+				{
+					segment = 0;
+					for(int k = 0; k < 8; k++)
+					{
+						try 
+						{
+							pixel = pict.GetPixel(i,j + k);
+							if((pixel.R <= red) && (pixel.G <= green) && (pixel.B <= blue))
+							{
+								segment = SetBit(segment, 7-k, true);
+								new_pict.SetPixel(i+k, j, Color.Black);
+							}
+							else
+								new_pict.SetPixel(i, j+k, Color.White);
+						} 
+						catch (Exception) 
+						{
+							break;
+						}
+						line += "0x"+Convert.ToString(segment, 16)+",";
+					}
+					line += Environment.NewLine;
+				}
+				textBox.Text += line;
+				pictureBox1.Image = new_pict;
+			}
+		}
 	}
 }
