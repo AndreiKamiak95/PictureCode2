@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 
 namespace PictureCode2
 {
@@ -31,8 +31,8 @@ namespace PictureCode2
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+			pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 			red = trackBarRed.Value;
 			green = trackBarGreen.Value;
 			blue = trackBarBlue.Value;
@@ -41,22 +41,6 @@ namespace PictureCode2
 			textBoxRed.Text = red.ToString();
 		}
 		
-		public static byte SetBit(byte val, int num,bool bit)
-		{
-			if ((num> 7) || (num< 0))//Проверка входных данных
-			{
-			   throw new ArgumentException();
-			}
-			byte tmpval = 1;
-			tmpval = (byte)(tmpval<<num);//устанавливаем нужный бит в единицу
-			val = (byte)(val& (~tmpval));//сбрасываем в 0 нужный бит
-			
-			if (bit)// если бит требуется установить в 1
-			{
-			   val = (byte)(val | (tmpval));//то устанавливаем нужный бит в 1
-			}
-			return val;
-		}
 		void BtnOpenClick(object sender, EventArgs e)
 		{
 			openFileDialog1.Filter = "Pictures|*.bmp;*.png;*.jpg;*.jpeg;*.ico|All files|*.*";
@@ -77,50 +61,65 @@ namespace PictureCode2
 		}
 		void BtnConvertClick(object sender, EventArgs e)
 		{
-			int width = pict.Width;
-			int height = pict.Height;
-			int width_byte = pict.Width/8;
-			byte segment = 0;
-			string line = "";
-			Color pixel;
-			textBox.Text = "";
+			textBox.Clear();
 			
-			if(width%8 != 0)
-			{
-				width_byte++;
-			}
-			textBox.Text += "0x"+Convert.ToString(height, 16) + ", 0x00, " + "0x"+Convert.ToString(width_byte, 16) + 
-								", 0x00," + Environment.NewLine;
+			var width = (Int16)pict.Width;
+			var height = (Int16)pict.Height;
+			String line, buf;
+			byte buf_byte;
+			
+			//записываем ширину в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(width & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line = buf;
+			buf_byte = Convert.ToByte((width & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			//записываем высоту в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(height & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			buf_byte = Convert.ToByte((height & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			byte segment;
+			
+			textBox.AppendText(line + Environment.NewLine);
 			
 			for(int j = 0; j < height; j++)
 			{
+				line = "";
 				for(int i = 0; i < width; i+=8)
 				{
 					segment = 0;
 					
-					for(int k = 0; k < 8; k++)
+					try 
 					{
-						try
+						for (int k = 0; k < 8; k++) 
 						{
-							pixel = pict.GetPixel(i+k,j);
-							if((pixel.R <= red) && (pixel.G <= green) && (pixel.B <= blue))
+							Color pixel = pict.GetPixel(i + k, j);
+							
+							if((pixel.R <= red) && (pixel.B <= blue) && (pixel.G <= green))
 							{
-								segment = SetBit(segment, 7-k, true);
-								new_pict.SetPixel(i+k, j, Color.Black);
+								segment = Functions.SetBit(segment, 7 - k, true);
+								new_pict.SetPixel(i + k, j, Color.Black);
 							}
 							else
-								new_pict.SetPixel(i+k, j, Color.White);
+								new_pict.SetPixel(i + k, j, Color.White);
 						}
-						catch(Exception)
-						{
-							break;
-						}
+						
+					} 
+					catch (Exception) 
+					{
+						line += Functions.GetHexNumber(segment) + ",";
+						break;						
 					}
-					line += "0x"+Convert.ToString(segment, 16)+",";
+					line += Functions.GetHexNumber(segment) + ",";					
 				}
-				line += Environment.NewLine;
+				textBox.AppendText(line + Environment.NewLine);
 			}
-			textBox.Text += line;
 			pictureBox1.Image = new_pict;
 		}
 		void AboutToolStripMenuItemClick(object sender, EventArgs e)
@@ -221,49 +220,67 @@ namespace PictureCode2
 				MessageBox.Show("Неверный формат ввода");
 			}
 		}
-		void ConverRowClick(object sender, EventArgs e)
+		void BtnConvertRowClick(object sender, EventArgs e)
 		{
 			textBox.Clear();
-			int width = pict.Width;
-			int height = pict.Height;
-			byte segment = 0;
-			string line = "";
-			Color pixel;
-			int height_byte = pict.Height/8;
-			if(pict.Height%8 != 0)
-			{
-				height_byte++;
-			}
 			
+			var width = (Int16)pict.Width;
+			var height = (Int16)pict.Height;
+			String line, buf;
+			byte buf_byte;
+			
+			//записываем ширину в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(width & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line = buf;
+			buf_byte = Convert.ToByte((width & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			//записываем высоту в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(height & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			buf_byte = Convert.ToByte((height & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			textBox.AppendText(line + Environment.NewLine);
+			
+			byte segment = 0;
+						
 			for(int i = 0; i < width; i++)
 			{
-				for(int j = 0; j < height_byte; j+=8)
+				line = "";
+				for(int j = 0; j < height; j+=8)
 				{
 					segment = 0;
-					for(int k = 0; k < 8; k++)
+					try 
 					{
-						try 
+						for(int k = 0; k < 8; k++)
 						{
-							pixel = pict.GetPixel(i,j + k);
-							if((pixel.R <= red) && (pixel.G <= green) && (pixel.B <= blue))
+							Color pixel = pict.GetPixel(i, j + k);
+							
+							if((pixel.R <= red) && (pixel.B <= blue) && (pixel.G <= green))
 							{
-								segment = SetBit(segment, 7-k, true);
-								new_pict.SetPixel(i+k, j, Color.Black);
+								segment = Functions.SetBit(segment, 7 - k, true);
+								new_pict.SetPixel(i, j + k, Color.Black);
 							}
 							else
-								new_pict.SetPixel(i, j+k, Color.White);
-						} 
-						catch (Exception) 
-						{
-							break;
+								new_pict.SetPixel(i, j + k, Color.White);
 						}
-						line += "0x"+Convert.ToString(segment, 16)+",";
+					} 
+					catch (Exception)
+					{
+						line += Functions.GetHexNumber(segment) + ",";
+						break;
 					}
-					line += Environment.NewLine;
+					line += Functions.GetHexNumber(segment) + ",";
 				}
-				textBox.Text += line;
-				pictureBox1.Image = new_pict;
+				textBox.AppendText(line + Environment.NewLine);
 			}
+			
+			pictureBox1.Image = new_pict;
 		}
 	}
 }

@@ -28,7 +28,7 @@ namespace PictureCode2
 		private System.Windows.Forms.TextBox textBoxGreen;
 		private System.Windows.Forms.TextBox textBoxBlue;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Button ConverRow;
+		private System.Windows.Forms.Button btnConvertRow;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -66,7 +66,7 @@ namespace PictureCode2
 			this.textBoxGreen = new System.Windows.Forms.TextBox();
 			this.textBoxBlue = new System.Windows.Forms.TextBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.ConverRow = new System.Windows.Forms.Button();
+			this.btnConvertRow = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
@@ -87,7 +87,6 @@ namespace PictureCode2
 			// 
 			// btnConvert
 			// 
-			this.btnConvert.Enabled = false;
 			this.btnConvert.Location = new System.Drawing.Point(212, 182);
 			this.btnConvert.Name = "btnConvert";
 			this.btnConvert.Size = new System.Drawing.Size(52, 23);
@@ -205,23 +204,22 @@ namespace PictureCode2
 			this.pictureBox1.TabIndex = 11;
 			this.pictureBox1.TabStop = false;
 			// 
-			// ConverRow
+			// btnConvertRow
 			// 
-			this.ConverRow.Enabled = false;
-			this.ConverRow.Location = new System.Drawing.Point(270, 182);
-			this.ConverRow.Name = "ConverRow";
-			this.ConverRow.Size = new System.Drawing.Size(93, 23);
-			this.ConverRow.TabIndex = 12;
-			this.ConverRow.Text = "ConvertRow";
-			this.ConverRow.UseVisualStyleBackColor = true;
-			this.ConverRow.Click += new System.EventHandler(this.ConverRowClick);
+			this.btnConvertRow.Location = new System.Drawing.Point(270, 182);
+			this.btnConvertRow.Name = "btnConvertRow";
+			this.btnConvertRow.Size = new System.Drawing.Size(80, 23);
+			this.btnConvertRow.TabIndex = 12;
+			this.btnConvertRow.Text = "ConvertRow";
+			this.btnConvertRow.UseVisualStyleBackColor = true;
+			this.btnConvertRow.Click += new System.EventHandler(this.BtnConvertRowClick);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(815, 373);
-			this.Controls.Add(this.ConverRow);
+			this.Controls.Add(this.btnConvertRow);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.textBoxBlue);
 			this.Controls.Add(this.textBoxGreen);
