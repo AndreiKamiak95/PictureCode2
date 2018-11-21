@@ -7,7 +7,6 @@
  * Для изменения этого шаблона используйте меню "Инструменты | Параметры | Кодирование | Стандартные заголовки".
  */
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms; 
 
@@ -31,8 +30,8 @@ namespace PictureCode2
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-			pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+//			pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+//			pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 			red = trackBarRed.Value;
 			green = trackBarGreen.Value;
 			blue = trackBarBlue.Value;
@@ -279,7 +278,69 @@ namespace PictureCode2
 				}
 				textBox.AppendText(line + Environment.NewLine);
 			}
+			pictureBox1.Image = new_pict;
+		}
+		void BtnConverRow8Click(object sender, EventArgs e)
+		{
+			textBox.Clear();
 			
+			int width = pict.Width;
+			int height = pict.Height;
+			String line, buf;
+			byte buf_byte;
+			
+			//записываем ширину в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(width & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line = buf;
+			buf_byte = Convert.ToByte((width & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			//записываем высоту в битах, сразу младшая часть,
+			buf_byte = Convert.ToByte(height & 0x00FF);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			buf_byte = Convert.ToByte((height & 0xFF00)>>8);
+			buf = Functions.GetHexNumber(buf_byte) + ",";
+			line += buf;
+			
+			textBox.AppendText(line + Environment.NewLine);
+			
+			byte segment = 0;
+			
+			for(int j = 0; j < height; j+=8)
+			{
+				line = "";
+				for(int i = 0; i < width; i++)
+				{
+					segment = 0;
+					
+					try 
+					{
+						for(int k = 0; k < 8; k++)
+						{
+							Color pixel = pict.GetPixel(i, j + k);
+							
+							if((pixel.R <= red) && (pixel.B <= blue) && (pixel.G <= green))
+							{
+								segment = Functions.SetBit(segment, 7 - k, true);
+								new_pict.SetPixel(i, j + k, Color.Black);
+							}
+							else
+								new_pict.SetPixel(i, j + k, Color.White);
+							
+						}
+					} 
+					catch (Exception) 
+					{
+						line += Functions.GetHexNumber(segment) + ",";
+						continue;
+					}
+					line += Functions.GetHexNumber(segment) + ",";
+				}
+				textBox.AppendText(line + Environment.NewLine);
+			}
 			pictureBox1.Image = new_pict;
 		}
 	}

@@ -29,6 +29,7 @@ namespace PictureCode2
 		private System.Windows.Forms.TextBox textBoxBlue;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button btnConvertRow;
+		private System.Windows.Forms.Button btnConverRow8;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -67,6 +68,7 @@ namespace PictureCode2
 			this.textBoxBlue = new System.Windows.Forms.TextBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnConvertRow = new System.Windows.Forms.Button();
+			this.btnConverRow8 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
@@ -77,7 +79,7 @@ namespace PictureCode2
 			// 
 			// btnOpen
 			// 
-			this.btnOpen.Location = new System.Drawing.Point(165, 182);
+			this.btnOpen.Location = new System.Drawing.Point(165, 168);
 			this.btnOpen.Name = "btnOpen";
 			this.btnOpen.Size = new System.Drawing.Size(41, 23);
 			this.btnOpen.TabIndex = 0;
@@ -87,7 +89,7 @@ namespace PictureCode2
 			// 
 			// btnConvert
 			// 
-			this.btnConvert.Location = new System.Drawing.Point(212, 182);
+			this.btnConvert.Location = new System.Drawing.Point(165, 197);
 			this.btnConvert.Name = "btnConvert";
 			this.btnConvert.Size = new System.Drawing.Size(52, 23);
 			this.btnConvert.TabIndex = 1;
@@ -99,7 +101,7 @@ namespace PictureCode2
 			// 
 			this.pictureBox.Location = new System.Drawing.Point(165, 27);
 			this.pictureBox.Name = "pictureBox";
-			this.pictureBox.Size = new System.Drawing.Size(198, 149);
+			this.pictureBox.Size = new System.Drawing.Size(198, 135);
 			this.pictureBox.TabIndex = 2;
 			this.pictureBox.TabStop = false;
 			// 
@@ -198,15 +200,15 @@ namespace PictureCode2
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(165, 211);
+			this.pictureBox1.Location = new System.Drawing.Point(165, 230);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(198, 150);
+			this.pictureBox1.Size = new System.Drawing.Size(198, 131);
 			this.pictureBox1.TabIndex = 11;
 			this.pictureBox1.TabStop = false;
 			// 
 			// btnConvertRow
 			// 
-			this.btnConvertRow.Location = new System.Drawing.Point(270, 182);
+			this.btnConvertRow.Location = new System.Drawing.Point(283, 168);
 			this.btnConvertRow.Name = "btnConvertRow";
 			this.btnConvertRow.Size = new System.Drawing.Size(80, 23);
 			this.btnConvertRow.TabIndex = 12;
@@ -214,11 +216,22 @@ namespace PictureCode2
 			this.btnConvertRow.UseVisualStyleBackColor = true;
 			this.btnConvertRow.Click += new System.EventHandler(this.BtnConvertRowClick);
 			// 
+			// btnConverRow8
+			// 
+			this.btnConverRow8.Location = new System.Drawing.Point(283, 197);
+			this.btnConverRow8.Name = "btnConverRow8";
+			this.btnConverRow8.Size = new System.Drawing.Size(80, 23);
+			this.btnConverRow8.TabIndex = 13;
+			this.btnConverRow8.Text = "ConvertRow8";
+			this.btnConverRow8.UseVisualStyleBackColor = true;
+			this.btnConverRow8.Click += new System.EventHandler(this.BtnConverRow8Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(815, 373);
+			this.Controls.Add(this.btnConverRow8);
 			this.Controls.Add(this.btnConvertRow);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.textBoxBlue);
