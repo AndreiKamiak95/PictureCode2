@@ -30,6 +30,7 @@ namespace PictureCode2
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button btnConvertRow;
 		private System.Windows.Forms.Button btnConverRow8;
+		private System.Windows.Forms.Button btnConvertSKB;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -69,6 +70,7 @@ namespace PictureCode2
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnConvertRow = new System.Windows.Forms.Button();
 			this.btnConverRow8 = new System.Windows.Forms.Button();
+			this.btnConvertSKB = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
@@ -226,11 +228,22 @@ namespace PictureCode2
 			this.btnConverRow8.UseVisualStyleBackColor = true;
 			this.btnConverRow8.Click += new System.EventHandler(this.BtnConverRow8Click);
 			// 
+			// btnConvertSKB
+			// 
+			this.btnConvertSKB.Location = new System.Drawing.Point(224, 168);
+			this.btnConvertSKB.Name = "btnConvertSKB";
+			this.btnConvertSKB.Size = new System.Drawing.Size(53, 52);
+			this.btnConvertSKB.TabIndex = 14;
+			this.btnConvertSKB.Text = "SKB";
+			this.btnConvertSKB.UseVisualStyleBackColor = true;
+			this.btnConvertSKB.Click += new System.EventHandler(this.BtnConvertSKBClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(815, 373);
+			this.Controls.Add(this.btnConvertSKB);
 			this.Controls.Add(this.btnConverRow8);
 			this.Controls.Add(this.btnConvertRow);
 			this.Controls.Add(this.pictureBox1);
